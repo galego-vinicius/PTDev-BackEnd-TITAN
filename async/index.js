@@ -6,7 +6,7 @@
 //     console.log('Meu nome é vinicius')
 // }, 1000);
 
-function enviarEmail (corpo, para) {
+function enviarEmail (corpo, para, callback) {
     setTimeout(() => {
         console.log(`
         Para: ${para}
@@ -15,10 +15,12 @@ function enviarEmail (corpo, para) {
         ----------------------------
         De: Vinícius Félix
         `)
+        callback()
     }, 2000);
 }
 
 console.log('Inicio de envio do e-mail')
-enviarEmail("Oi, seja bem-vindo ao Guia", "vinicius@hotmail.com")
-console.log('Seu e-mail foi enviado. Deve chegar em minutos!')
-console.log('TUDO OK!')
+enviarEmail("Oi, seja bem-vindo ao Guia", "vinicius@hotmail.com", () => {
+    console.log('Seu e-mail foi enviado. Deve chegar em minutos!')
+    console.log('TUDO OK!')
+})
