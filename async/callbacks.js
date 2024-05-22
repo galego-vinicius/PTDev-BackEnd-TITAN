@@ -6,6 +6,8 @@
 //     console.log('Meu nome é vinicius')
 // }, 1000);
 
+
+// ------------------------------------------------- CALLBACKS -----------------------------------------------------------
 function enviarEmail (corpo, para, callback) {
     var error = true
 
