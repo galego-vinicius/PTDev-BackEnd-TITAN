@@ -51,6 +51,7 @@ function buscarEmailNoBanco(){
     }
 )}
 
+/*
 pegarId().then((id) => {
     buscarEmailNoBanco(id).then((email) => {
         enviarEmail(email).then(() => {
@@ -58,4 +59,30 @@ pegarId().then((id) => {
         })
     })
 })
+*/
+
+// utilizando a promise hell acima para transformar em async/await
+
+async function principal(){
+    var id = await pegarId();
+    var email = await buscarEmailNoBanco(id);
+    /*
+    enviarEmail("Olá, como vai?", email).then(() => {
+        console.log("Email enviado!")
+    }).catch((err) => {
+        console.log(err)
+    });
+                    OU (utilizando o await)
+    */
+   try{
+        await enviarEmail("Olá, como vai?", email)
+        console.log("Email enviado com sucesso")
+   }catch(err){
+    console.log("Deu algum erro: " + err)
+   }
+}
+
+principal()
+
+
 
